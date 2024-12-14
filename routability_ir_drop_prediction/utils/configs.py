@@ -16,7 +16,7 @@ class Parser(object):
     
         self.parser.add_argument('--pretrained', default=None)
 
-        self.parser.add_argument('--max_iters', default=200) # transfer learning 200
+        self.parser.add_argument('--max_iters', default=200000) # transfer learning 200
         self.parser.add_argument('--plot_roc', action='store_true')
         self.parser.add_argument('--arg_file', default=None)
         self.parser.add_argument('--cpu', action='store_true')
@@ -87,7 +87,7 @@ class Parser(object):
             self.parser.add_argument('--lr', default=2e-4)
             self.parser.add_argument('--weight_decay', default=0)
             self.parser.add_argument('--loss_type', default='MSELoss')
-            self.parser.add_argument('--eval-metric', default=['NRMS', 'SSIM', 'EMD'])
+            self.parser.add_argument('--eval-metric', default=['NRMS', 'SSIM', 'EMD', 'PSNR'])
             # self.parser.add_argument('--pretrained_transfer', default='../../transfer_learning/models/pretrained/gpdl_congestion.pth')
         else:
             raise ValueError

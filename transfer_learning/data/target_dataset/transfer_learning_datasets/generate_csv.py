@@ -19,7 +19,7 @@ for dir_name in dirs:
         continue
 
     # 打开一个新的 CSV 文件进行写入
-    with open(f'{dir_name}_file.csv', mode='w', newline='') as file:
+    with open(f'{dir_name}.csv', mode='w', newline='') as file:
         writer = csv.writer(file)
         # 写入表头
         # writer.writerow(['Feature', 'Label'])
