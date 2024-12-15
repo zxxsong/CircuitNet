@@ -14,7 +14,7 @@ class Parser(object):
 
         self.parser.add_argument('--save_path', default='work_dir/congestion_gpdl/')
     
-        self.parser.add_argument('--pretrained', default=None) # for transfer learning or testing
+        self.parser.add_argument('--pretrained', default=None) # for transfer-learning or test
 
         self.parser.add_argument('--max_iters', default=200) # transfer learning 200
         self.parser.add_argument('--plot_roc', action='store_true')
