@@ -5,14 +5,17 @@ from __future__ import print_function
 import os
 import os.path as osp
 import json
+import sys
+
 import numpy as np
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'routability_ir_drop_prediction')))
 
 from tqdm import tqdm
 
-from datasets.build_dataset import build_dataset
-from utils.metrics import build_metric, build_roc_prc_metric
-from models.build_model import build_model
-from utils.configs import Parser
+from routability_ir_drop_prediction.datasets.build_dataset import build_dataset
+from routability_ir_drop_prediction.utils.metrics import build_metric, build_roc_prc_metric
+from routability_ir_drop_prediction.models.build_model import build_model
+from routability_ir_drop_prediction.utils.configs import Parser
 
 
 def test():

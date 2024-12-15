@@ -1,5 +1,8 @@
 import os
 import json
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'routability_ir_drop_prediction')))
+
 import torch
 import torch.optim as optim
 from tqdm import tqdm
@@ -28,7 +31,7 @@ def train():
 
     print('===> Loading target datasets')
     # Initialize dataset
-    target_dataset = build_dataset(arg_dict)
+    target_dataset = build_dataset(arg_dict) # build dataset是pop，之后的arg_dict已经没有ann_file_train了
 
     print('===> Building teacher model')
     # Initialize teacher model parameters
@@ -38,12 +41,15 @@ def train():
 
     print('===> Building student model')
     # Initialize student model parameters
-    student_model = build_model(arg_dict)
+    arg_dict['model_type'] = 'GPDL'         # 这里的model_type是pop，所以要重新赋值
+    student_model = build_model(arg_dict)   # build model是pop，所以这里的arg_dict已经没有model_type了
     if not arg_dict['cpu']:
         student_model = student_model.cuda()
 
     # Build loss
     soft_loss = build_loss(arg_dict)
+
+    arg_dict['loss_type'] = 'MSELoss'       # 这里的loss_type是pop，所以要重新赋值
     hard_loss = build_loss(arg_dict)
 
     # Build Optimzer

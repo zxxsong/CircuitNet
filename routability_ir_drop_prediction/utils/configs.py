@@ -14,12 +14,17 @@ class Parser(object):
 
         self.parser.add_argument('--save_path', default='work_dir/congestion_gpdl/')
     
-        self.parser.add_argument('--pretrained', default=None)
+        self.parser.add_argument('--pretrained', default=None) # for transfer learning or testing
 
-        self.parser.add_argument('--max_iters', default=200000) # transfer learning 200
+        self.parser.add_argument('--max_iters', default=200) # transfer learning 200
         self.parser.add_argument('--plot_roc', action='store_true')
         self.parser.add_argument('--arg_file', default=None)
         self.parser.add_argument('--cpu', action='store_true')
+
+        self.parser.add_argument('--dataroot', default='../../training_set/congestion')
+        self.parser.add_argument('--ann_file_train', default='./files/train_N28.csv')
+        self.parser.add_argument('--ann_file_test', default='./files/test_N28.csv')
+        self.parser.add_argument('--dataset_type', default='SuperBlueDataset')
         self.get_remainder()
         
     def get_remainder(self):
@@ -74,10 +79,10 @@ class Parser(object):
             self.parser.add_argument('--threshold', default=0.9885) # 5% after log
 
         elif self.parser.parse_args().task == 'congestion_transfer_learning':
-            self.parser.add_argument('--dataroot', default='../../training_set/congestion')
-            self.parser.add_argument('--ann_file_train', default='./files/train_N28.csv')
-            self.parser.add_argument('--ann_file_test', default='./files/test_N28.csv')
-            self.parser.add_argument('--dataset_type', default='SuperBlueDataset')
+            # self.parser.add_argument('--dataroot', default='../../training_set/congestion')
+            # self.parser.add_argument('--ann_file_train', default='./files/train_N28.csv')
+            # self.parser.add_argument('--ann_file_test', default='./files/test_N28.csv')
+            # self.parser.add_argument('--dataset_type', default='SuperBlueDataset')
             self.parser.add_argument('--batch_size', default=16)
             self.parser.add_argument('--aug_pipeline', default=['Flip'])
 
