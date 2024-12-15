@@ -1,0 +1,29 @@
+{
+    "task": "congestion_transfer_learning",
+    "save_path": ".\\models\\scratch\\superblue11_a\\",
+    "pretrained": null,
+    "max_iters": 200,
+    "plot_roc": false,
+    "arg_file": null,
+    "cpu": true,
+    "dataroot": ".\\data\\target_dataset\\transfer_learning_datasets\\superblue11_a\\",
+    "ann_file_train": ".\\data\\target_dataset\\transfer_learning_datasets\\superblue11_a.csv",
+    "ann_file_test": "./files/test_N28.csv",
+    "dataset_type": "SuperBlueDataset",
+    "batch_size": 16,
+    "aug_pipeline": [
+        "Flip"
+    ],
+    "model_type": "GPDL",
+    "in_channels": 3,
+    "out_channels": 1,
+    "lr": 0.0002,
+    "weight_decay": 0,
+    "loss_type": "MSELoss",
+    "eval_metric": [
+        "NRMS",
+        "SSIM",
+        "EMD",
+        "PSNR"
+    ]
+}

@@ -4,7 +4,7 @@ REM train
 echo start testing
 
 REM set python path to find routability_ir_drop_prediction module
-set PYTHONPATH=E:\szx\CircuitNet_transfer_learning_ispd
+set PYTHONPATH=E:\szx\CircuitNet
 REM superblue11_a
 python test.py ^
     --task congestion_transfer_learning ^

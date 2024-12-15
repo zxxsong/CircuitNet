@@ -3,18 +3,17 @@
 # train
 echo "start training"
 
-# Set python path to find routability_ir_drop_prediction module
-export PYTHONPATH=/path/to/EDA/CircuitNet
+# set python path to find routability_ir_drop_prediction module
+export PYTHONPATH=/path/to/CircuitNet
 
 # superblue11_a
 python train.py \
     --task congestion_transfer_learning \
-    --save_path ./models/student_model/superblue11_a/ \
-    --pretrained ./models/pretrained/congestion_gpdl/model_iters_170000.pth \
+    --save_path ./models/scratch/superblue11_a/ \
     --dataroot ./data/target_dataset/transfer_learning_datasets/superblue11_a/ \
     --ann_file_train ./data/target_dataset/transfer_learning_datasets/superblue11_a.csv \
     --dataset_type SuperBlueDataset \
-    --cpu
+    --cpu > superblue11_a.txt 2>&1
 if [ $? -eq 0 ]; then
     echo "superblue11_a done"
 else
@@ -24,12 +23,11 @@ fi
 # superblue14
 python train.py \
     --task congestion_transfer_learning \
-    --save_path ./models/student_model/superblue14/ \
-    --pretrained ./models/pretrained/congestion_gpdl/model_iters_170000.pth \
+    --save_path ./models/scratch/superblue14/ \
     --dataroot ./data/target_dataset/transfer_learning_datasets/superblue14/ \
     --ann_file_train ./data/target_dataset/transfer_learning_datasets/superblue14.csv \
     --dataset_type SuperBlueDataset \
-    --cpu
+    --cpu > superblue14.txt 2>&1
 if [ $? -eq 0 ]; then
     echo "superblue14 done"
 else
@@ -39,12 +37,11 @@ fi
 # superblue16_a
 python train.py \
     --task congestion_transfer_learning \
-    --save_path ./models/student_model/superblue16_a/ \
-    --pretrained ./models/pretrained/congestion_gpdl/model_iters_170000.pth \
+    --save_path ./models/scratch/superblue16_a/ \
     --dataroot ./data/target_dataset/transfer_learning_datasets/superblue16_a/ \
     --ann_file_train ./data/target_dataset/transfer_learning_datasets/superblue16_a.csv \
     --dataset_type SuperBlueDataset \
-    --cpu
+    --cpu > superblue16_a.txt 2>&1
 if [ $? -eq 0 ]; then
     echo "superblue16_a done"
 else
@@ -54,17 +51,13 @@ fi
 # superblue19
 python train.py \
     --task congestion_transfer_learning \
-    --save_path ./models/student_model/superblue19/ \
-    --pretrained ./models/pretrained/congestion_gpdl/model_iters_170000.pth \
+    --save_path ./models/scratch/superblue19/ \
     --dataroot ./data/target_dataset/transfer_learning_datasets/superblue19/ \
     --ann_file_train ./data/target_dataset/transfer_learning_datasets/superblue19.csv \
     --dataset_type SuperBlueDataset \
-    --cpu
+    --cpu > superblue19.txt 2>&1
 if [ $? -eq 0 ]; then
     echo "superblue19 done"
 else
     echo "superblue19 failed"
 fi
-
-# test
-echo "start testing"
