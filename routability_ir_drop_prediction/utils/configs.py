@@ -16,7 +16,7 @@ class Parser(object):
     
         self.parser.add_argument('--pretrained', default=None) # for transfer-learning or test
 
-        self.parser.add_argument('--max_iters', default=200) # transfer learning 200
+        self.parser.add_argument('--max_iters', default=20000) # transfer learning 200
         self.parser.add_argument('--plot_roc', action='store_true')
         self.parser.add_argument('--arg_file', default=None)
         self.parser.add_argument('--cpu', action='store_true')
