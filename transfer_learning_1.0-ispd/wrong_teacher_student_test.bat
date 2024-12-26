@@ -1,6 +1,7 @@
 @echo off
 
-REM train
+@REM 脚本是错误的，因为跑反实验了，superblue12作为微调，其余四个作为测试
+REM test
 echo start testing
 
 REM set python path to find routability_ir_drop_prediction module
