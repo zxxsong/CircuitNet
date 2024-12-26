@@ -63,7 +63,7 @@ def train():
     epoch_loss = 0
     iter_num = 0
     print_freq = 1
-    save_freq = 10
+    save_freq = 1
 
     while iter_num < arg_dict['max_iters']:
         with tqdm(total=print_freq) as bar:
@@ -81,8 +81,8 @@ def train():
 
                 optimizer.zero_grad()
 
-                pixel_loss = soft_loss(student_prediction, teacher_prediction)
-                pixel_loss += hard_loss(student_prediction, target)
+                pixel_loss = soft_loss(student_prediction, teacher_prediction) * 0.2
+                pixel_loss += hard_loss(student_prediction, target) * 0.8
 
                 epoch_loss += pixel_loss.item()
                 pixel_loss.backward()

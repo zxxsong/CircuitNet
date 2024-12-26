@@ -4,7 +4,7 @@ REM train
 echo start training
 
 REM set python path to find routability_ir_drop_prediction module
-set PYTHONPATH=E:\szx\CircuitNet_transfer_learning
+set PYTHONPATH=E:\szx\CircuitNet
 REM superblue12
 python train.py ^
     --task congestion_transfer_learning ^
@@ -13,7 +13,7 @@ python train.py ^
     --dataroot .\data\target_dataset\transfer_learning_datasets\superblue12\ ^
     --ann_file_train .\data\target_dataset\transfer_learning_datasets\superblue12.csv ^
     --dataset_type SuperBlueDataset ^
-    --cpu > superblue12.log 2>&1
+    --cpu > .\log\superblue12.log 2>&1
 if %errorlevel% == 0 (
     echo superblue12 done
 ) else (
