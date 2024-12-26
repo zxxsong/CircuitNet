@@ -37,8 +37,8 @@ def fix_module_name(read_list, save_dir):
 
                     
 if __name__ == '__main__':
-    def_dir = './DEF'
-    save_dir = './DEF-fix'
+    def_dir = 'D:\\EDA\CircuitNet\\feature_extraction\\data\\1-RISCY-a-1-c2-u0.7-m1-p1-f0.def'
+    save_dir = '.\\DEF-fix-RUDY'
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
 

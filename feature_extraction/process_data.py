@@ -9,7 +9,7 @@ from src.read import ReadInnovusOutput, read_lef, read_lef_pin_map
 class Paraser(object):
     def __init__(self) -> None:
         self.parser = argparse.ArgumentParser()
-        self.parser.add_argument('--data_root', default='./data', help='the parent dir of innovus workspace')
+        self.parser.add_argument('--data_root', default='./DEF-fix-RUDY', help='the parent dir of innovus workspace')
         self.parser.add_argument('--lef_path', default=['./LEF/circuitnet.lef'], help='path to LEF files')
         self.parser.add_argument('--unit', default=2000, help='unit defined in the begining of DEF')
         self.parser.add_argument('--save_path', default='./out', help='save path')
@@ -18,8 +18,8 @@ class Paraser(object):
 
         # We give route def in place_def_name argument for simple. 
         # But users should provide place DEF here, due to the difference in place and route DEF from possible optDesign.
-        self.parser.add_argument('--place_def_name', default='detailed_route.def.gz')
-        self.parser.add_argument('--route_def_name', default='detailed_route.def.gz')
+        self.parser.add_argument('--place_def_name', default='1-RISCY-a-1-c2-u0.7-m1-p1-f0.def.gz')
+        self.parser.add_argument('--route_def_name', default='1-RISCY-a-1-c2-u0.7-m1-p1-f0.def.gz')
         self.parser.add_argument('--eGR_congestion_name', default='eGR_congestion') # congestion report from 'dumpNanoCongestArea'
         self.parser.add_argument('--route_congestion_name', default='route_congestion')
         self.parser.add_argument('--drc_rpt_name', default='drc.rpt')               # drc report from 'verify_drc'
@@ -41,7 +41,8 @@ def read(read_list, arg, lef_dic, lef_dic_jnet):
         process_log.read_route_def()        
         process_log.read_place_def()
         process_log.compute_cell_density()
-        process_log.get_RUDY()
+        process_log.get_RUDY() # 报错
+        # process_log.read_route_congestion() # 报错 似乎需要读取report文件？
 
 if __name__ == '__main__':
     argp = Paraser()
